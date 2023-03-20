@@ -39,7 +39,7 @@ const Todo = () => {
 
   // mark task as done or completed
   const markDone = (id) => {
-    let newTask = todo.map((task) => {
+    let newTask = todo.map(task => {
       if (task.id === id) {
         return { ...task, status: !task.status };
       }
@@ -81,8 +81,8 @@ const Todo = () => {
                   className="bg-slate-300 mb-4 rounded px-2 py-2 flex items-center justify-between text-neutral-900"
                 >
                   <div className={props.status ? "done" : ""}>
-                    <div className="flex gap-x-2">
-                      <p className="opacity-4">{props.time}</p>
+                    <div className="flex">
+                      <p className="opacity-4 text-xs">{props.time}</p>
                     </div>
                     <h3>{props.title}</h3>
                     <h4>{props.status}</h4>
@@ -90,7 +90,7 @@ const Todo = () => {
                   <div className="flex gap-x-1.5 cursor-pointer ">
                     <IoIosCheckmarkCircle
                       onClick={(e) => markDone(props.id)}
-                      title="Completed"
+                      title="Completed/ not completed"
                       className="hover:text-red-800 text-lime-700"
                     />
                     {props.status ? null : (
